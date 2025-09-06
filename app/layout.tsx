@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     default: 'Vividalis — Web Designer',
     template: '%s | Vividalis — Web Designer'
   },
-  description: 'Web designer building modern, eye-catching, SEO-optimized sites using Next.js and Tailwind.',
+  description:
+    'Web designer building modern, eye-catching, SEO-optimized sites using Next.js and Tailwind.',
   alternates: { canonical: '/' },
   robots: {
     index: true,
@@ -38,7 +39,8 @@ export const metadata: Metadata = {
     title: 'Vividalis — Web Designer',
     description: 'Modern, eye-catching, SEO-optimized websites.',
     images: ['/og.jpg']
-  }
+  },
+  other: { 'google-site-verification': '1D0BJCUhuiKpgFC85Gbsol_4K-LLyDAxSAwjbeRqPf8' }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
