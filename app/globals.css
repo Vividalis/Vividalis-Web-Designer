@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+
+/* === Midnight Electric palette (tokens) === */
+:root {
+  --bg:        #0b0e16;  /* deep slate */
+  --fg:        #eef1f7;  /* near-white text */
+  --muted:     #a9b2c8;  /* secondary text */
+  --panel:     rgba(255,255,255,0.06);
+  --border:    rgba(255,255,255,0.14);
+  --accent:    #8b5cf6;  /* violet-500 */
+  --accent-2:  #22d3ee;  /* cyan-400 */
+  color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; }
+.section { scroll-margin-top: 80px; } /* keeps headings from hiding under the fixed nav */
+
+.container { @apply max-w-6xl mx-auto px-4; }
+.section { @apply py-16 md:py-24; }
+
+.bigname { @apply text-6xl md:text-8xl tracking-[0.3em] font-bold; }
+
+@layer utilities {
+  .marquee { @apply overflow-hidden whitespace-nowrap border-y border-white/10 py-4; }
+  .marquee-track { display:inline-block; will-change: transform; animation: marquee 25s linear infinite; }
+}
+
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+/* --- lighter accents --- */
+body {
+  color: var(--fg);
+  background:
+    radial-gradient(900px 500px at 20% -10%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%),
+    radial-gradient(800px 500px at 80% 110%, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent 60%),
+    var(--bg);
+}
+
+/* reusable light panel for cards/sections */
+.panel {
+  @apply rounded-xl border border-white/15 bg-white/5 p-4 md:p-6;
+}
+
+/* make the marquee strip a touch lighter */
+.marquee {
+  @apply bg-white/[0.03];
+}
+/* spotlight cursor */
+.spotlight {
+  background: radial-gradient(180px 180px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.08), transparent 60%);
+  mix-blend-mode: screen;
+}
+
+/* scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: transform, opacity;
+}
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* vertical path line */
+.vpath-track {
+  background: rgba(255,255,255,0.12);
+}
+.vpath-fill {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.35));
+  box-shadow: 0 0 12px rgba(255,255,255,0.25);
+}
